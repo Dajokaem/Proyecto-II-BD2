@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Persistencia;
+package com.base.crudsql;
 
 import Logica.Investigador;
 import java.util.List;
@@ -20,6 +20,11 @@ public class InvestigadorDAO {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    
+    @Autowired
+    public InvestigadorDAO(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     public List<Investigador> findAll() {
         String sql = "SELECT * FROM investigador";
@@ -33,12 +38,12 @@ public class InvestigadorDAO {
 
     public void save(Investigador investigador) {
         String sql = "INSERT INTO investigador(nombre_completo, email) VALUES (?, ?)";
-        jdbcTemplate.update(sql, investigador.getNombreCompleto(), investigador.getEmail());
+        jdbcTemplate.update(sql, investigador.getNombre_completo(), investigador.getEmail());
     }
 
     public void update(Investigador investigador) {
         String sql = "UPDATE investigador SET nombre_completo = ?, email = ? WHERE cod_investigador = ?";
-        jdbcTemplate.update(sql, investigador.getNombreCompleto(), investigador.getEmail(), investigador.getCod_investigador());
+        jdbcTemplate.update(sql, investigador.getNombre_completo(), investigador.getEmail(), investigador.getCod_investigador());
     }
 
     public void delete(int id) {

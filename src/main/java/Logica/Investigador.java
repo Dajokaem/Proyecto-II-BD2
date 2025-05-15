@@ -10,7 +10,7 @@ package Logica;
  */
 public class Investigador {
     private int cod_investigador;
-    private String nombrecompleto;
+    private String nombre_completo;
     private String email;
 
     public Investigador() {
@@ -18,7 +18,7 @@ public class Investigador {
 
     public Investigador(int cod_investigador, String nombre, String email) {
         this.cod_investigador = cod_investigador;
-        this.nombrecompleto = nombre;
+        this.nombre_completo = nombre;
         this.email = email;
     }
 
@@ -30,12 +30,12 @@ public class Investigador {
         this.cod_investigador = cod_investigador;
     }
 
-    public String getNombreCompleto() {
-        return nombrecompleto;
+    public String getNombre_completo() {
+        return nombre_completo;
     }
 
-    public void setNombreCompleto(String nombre) {
-        this.nombrecompleto = nombre;
+    public void setNombre_completo(String nombre) {
+        this.nombre_completo = nombre;
     }
 
     public String getEmail() {
